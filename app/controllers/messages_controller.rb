@@ -26,11 +26,10 @@ class MessagesController < ApplicationController
   end
 
   def update
-      if @message.update(message_params)
-        render json: { message: @message, status: :ok }
-      else
-        render json: { errors: @message.errors, status: :unprocessable_entity }
-      end
+    if @message.update(message_params)
+      render json: { message: @message, status: :ok }
+    else
+      render json: { errors: @message.errors, status: :unprocessable_entity }
     end
   end
 
@@ -46,6 +45,6 @@ class MessagesController < ApplicationController
     end
 
     def message_params
-      params[:message]
+      params.permit(:message, :sender_id, :receiver_id)
     end
 end
