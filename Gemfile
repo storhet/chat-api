@@ -13,6 +13,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'pg'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
+
+gem 'simplecov', group: :test, require: false
+gem "codeclimate-test-reporter", group: :test, require: nil
+
 
 group :development, :test do
   # gem 'byebug'
